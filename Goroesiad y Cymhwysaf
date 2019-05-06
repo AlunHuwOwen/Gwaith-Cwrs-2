@@ -1,0 +1,22 @@
+def goroesiad(n,p):
+    q=0
+    while q < n:
+        """Goroesiad y Cymhwysaf"""
+        gwerthusiad=[]
+        for i in poblogaeth:
+            gwerthusiad.append(gwyrio(i))
+        gwan = [i for i,x in enumerate(gwerthusiad) if x < sorted(gwerthusiad)[10]]
+        cryf = [i for i,x in enumerate(gwerthusiad) if x >= sorted(gwerthusiad)[10]]
+        for h in gwan:
+            for i in range(220):
+                poblogaeth[h][i,:] = poblogaeth[np.random.choice(cryf)][i,:]
+        """Mwtaniad"""
+        for k in poblogaeth:
+            if rand.random() < p:
+                for i in range(220):
+                    if rand.random() < p:
+                        dewis = [j for j,x in enumerate(k[i,:]) if x == 1]
+                        hebdewis = [i for i,x in enumerate(k[i,:]) if x == 0]
+                        k[i,np.random.choice(dewis)] = 0
+                        k[i,np.random.choice(hebdewis)] = 1
+        q=q+1
