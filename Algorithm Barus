@@ -1,0 +1,12 @@
+"""Algorithm Barus"""
+def barus(i):
+    k=7
+    while k>=4:
+        t=0
+        while t<220:
+            for j in range(20):
+                if (Data[rhifauorhesi[t],j]==k):
+                    if (sum(i[rhifauorhesi[t],:])<3) and (sum(i[:,j])<40):
+                        i[rhifauorhesi[t],j]=1
+            t=t+1 
+        k=k-1
