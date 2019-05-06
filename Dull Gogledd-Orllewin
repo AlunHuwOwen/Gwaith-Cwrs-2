@@ -1,0 +1,9 @@
+"""Dull Gogledd-Orllewin"""
+def gog(i):
+    t=0
+    while t<220:
+        for j in range(20):
+            if (Data[t,j]>0):
+                if (sum(i[t,:])<3) and (sum(i[:,j])<40):
+                    i[t,j]=1
+        t=t+1 
