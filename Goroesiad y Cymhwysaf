@@ -1,3 +1,7 @@
+gwerthusiad=[]
+for i in poblogaeth:
+    gwerthusiad.append(gwyrio(i))
+
 def goroesiad(n,p):
     q=0
     while q < n:
