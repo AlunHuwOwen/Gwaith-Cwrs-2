@@ -1,4 +1,4 @@
-"""Dull Gogledd-Orllewin"""
+#Dull Gogledd-Orllewin
 def gog(i):
     t=0
     while t<220:
