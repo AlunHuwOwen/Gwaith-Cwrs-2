@@ -1,7 +1,7 @@
 def goroesiad(n,p):
     q=0
     while q < n:
-        """Goroesiad y Cymhwysaf"""
+        #Goroesiad y Cymhwysaf
         gwerthusiad=[]
         for i in poblogaeth:
             gwerthusiad.append(gwyrio(i))
@@ -10,7 +10,7 @@ def goroesiad(n,p):
         for h in gwan:
             for i in range(220):
                 poblogaeth[h][i,:] = poblogaeth[np.random.choice(cryf)][i,:]
-        """Mwtaniad"""
+        #Mwtaniad
         for k in poblogaeth:
             if rand.random() < p:
                 for i in range(220):
