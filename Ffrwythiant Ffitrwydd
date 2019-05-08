@@ -1,0 +1,55 @@
+def gwyrio(i):
+    result=0
+    t=0
+    def rhyw(i,k):
+        count=0
+        if sum(i[:,k])==0:
+            return(0)
+        for j in range(220):
+            if Data2[j,20]=="M" and i[j,k]==1:
+                count+=1
+        return(count/sum(i[:,k]))
+    #Extreme Cases
+    while t<220:
+        for j in range(20):
+            if (sum(i[t,:])>3):
+                result = result-1000
+            if (sum(i[:,j])>40):
+                result = result-1000
+            if (sum(i[:,j])<6):
+                result = result-1000
+        t=t+1
+    #swm o blaenoriaeth
+    result = result + sum(sum(Data*i))/3960
+    #Darn Rhyw"""
+    set=[]
+    for j in range(20):
+        set.append(rhyw(i,j))
+    result-=np.var(set)/(np.var(set)+(np.var(set)**0.5)*2.977)
+    #Darn maint dosbarth
+    set2=[]
+    for j in range(20):
+        set2.append(sum(i[:,j]))
+    result-=np.var(set2)/(np.var(set2)+(np.var(set2)**0.5)*2.977)
+    #Myfyrwyr Da, Seiledig ar marciau blwyddyn dwythaf
+    Data5 = np.sum(Data*i, axis=1)
+    Data4 = np.ndarray.flatten(Data3)
+    Data6 = np.array((Data4, Data5))
+    if np.isfinite(np.corrcoef(Data6)).all():
+        result+=(((np.corrcoef(Data6)[1,0])+1)/2)
+    else:
+        result-=0
+    #Dosraniad o marciau dros dosbarth
+    set3 = []
+    for j in range(20):
+        if sum(i[:,j])==0:
+            result-=100000
+        else:
+            set3.append(sum(i[:,j]*Data4)/sum(i[:,j]))
+    result-=np.var(set3)/(np.var(set3)+(np.var(set3)**0.5)*2.977)
+    #Nifer sy'n mynychu gwersi
+    set4 = []
+    for j in range(20):
+        set4.append(sum(i[:,j]*Data8*0.01)-30)
+    result-=np.var(set4)/(np.var(set4)+(np.var(set4)**0.5)*2.977)
+    return(result)
