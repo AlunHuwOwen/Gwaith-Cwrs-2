@@ -1,3 +1,4 @@
+rhifauorhesi =list(range(0,220))
 #Dull Gogledd-Orllewin
 def gog(i):
     t=0
