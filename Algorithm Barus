@@ -1,3 +1,4 @@
+rhifauorhesi =list(range(0,220))
 #Algorithm Barus
 def barus(i):
     k=7
