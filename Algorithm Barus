@@ -1,4 +1,4 @@
-"""Algorithm Barus"""
+#Algorithm Barus
 def barus(i):
     k=7
     while k>=4:
